@@ -4260,6 +4260,7 @@ const AngularWorkflow = (defaultprops) => {
 							  workflow.actions[foundindex].name = curaction.name
 
 							  setWorkflow(workflow)
+                console.log(workflow)
 						  }
 						  break
 					  }

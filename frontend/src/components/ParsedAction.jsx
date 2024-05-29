@@ -380,13 +380,12 @@ const ParsedAction = (props) => {
 
 
     useEffect(() => {
-      if (selectedActionParameters !== undefined && selectedActionParameters !== null && selectedActionParameters.length === 0
+      if (selectedActionParameters !== undefined && selectedActionParameters !== null
       ) {
         if (selectedAction.parameters !== undefined && selectedAction.parameters !== null && selectedAction.parameters.length > 0) {
           setSelectedActionParameters(selectedAction.parameters);
         }
       }
-
       if ((selectedVariableParameter === null || selectedVariableParameter === undefined) && workflow.workflow_variables !== null && workflow.workflow_variables.length > 0) {
       
         // FIXME - this is the bad thing
@@ -612,7 +611,8 @@ const ParsedAction = (props) => {
         	setActionlist(actionlist);
 		}
       }
-    });
+    },
+	[selectedAction, selectedVariableParameter, workflowExecutions, listCache]);
 
 
 		const calculateHelpertext = (input_data) => {
@@ -1247,6 +1247,8 @@ const ParsedAction = (props) => {
 	
 
   const selectedAppIcon = selectedAction.large_image
+  console.log("Selected action: ", selectedAction)
+		console.log("Selected action paramaters: ", selectedAction.parameters)
   var baselabel = selectedAction.label
   return (
     <div style={appApiViewStyle} id="parsed_action_view">
@@ -2015,7 +2017,6 @@ const ParsedAction = (props) => {
           </Select>
         </div>
       ) : null}
-
       {workflow.execution_variables !== undefined &&
       workflow.execution_variables !== null &&
       workflow.execution_variables.length > 0 ? (
@@ -2335,7 +2336,6 @@ const ParsedAction = (props) => {
 						})}
 					</Select>
 				: null*/}
-
         <div
           style={{
             marginTop: "10px",
@@ -2713,7 +2713,7 @@ const ParsedAction = (props) => {
             
               placeholder = data.example;
 
-              if (data.name === "url" && data.value !== undefined && data.value !== null && data.value.length === 0) {
+              if (data.name === "url" && data.value !== undefined && data.value !== null && data.value.length > 0) {
                 data.value = data.example;
               }
 					// In case of data.example
