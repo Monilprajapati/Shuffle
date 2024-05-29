@@ -194,7 +194,7 @@ const AppGrid = props => {
 			// Don't return anything unless refinement works
 			return null
 		}
-
+		
 		return (
 		  <form noValidate action="" role="search">
 		  	{onlyResults !== true ?
@@ -220,6 +220,11 @@ const AppGrid = props => {
 					onChange={(event) => {
 						removeQuery("q")
 						refine(event.currentTarget.value)
+					}}
+					onKeyDown={(event) => {
+						if(event.key === "Enter") {
+							event.preventDefault();
+						}
 					}}
 					limit={5}
 				/>

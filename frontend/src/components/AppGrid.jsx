@@ -5,7 +5,6 @@ import ReactGA from "react-ga4";
 import { Link } from "react-router-dom";
 import { removeQuery } from "../components/ScrollToTop.jsx";
 import { useMemo } from "react";
-
 import { Tabs, Tab, Collapse } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import ExpandLessIcon from "@mui/icons-material/ExpandLess";
@@ -33,10 +32,8 @@ import {
   ClearRefinements,
   connectStateResults
 } from "react-instantsearch-dom";
-
 import aa from "search-insights";
 import { useLocation } from 'react-router-dom';
-
 import "./FilterCSS.css";
 
 import {
@@ -158,7 +155,6 @@ const AppGrid = (props) => {
     const handleSearch = () => {
       refine(searchQuery.trim());
     };
-
     return (
       <form noValidate action="" role="search">
         <TextField
@@ -232,6 +228,11 @@ const AppGrid = (props) => {
             removeQuery("q");
             refine(event.currentTarget.value);
           }}
+          onKeyDown={(event) => {
+						if(event.key === "Enter") {
+							event.preventDefault();
+						}
+					}}
           limit={5}
         />
         {/*isSearchStalled ? 'My search is stalled' : ''*/}
@@ -994,6 +995,11 @@ const AppGrid = (props) => {
           onChange={(event) => {
             setSearchQuery(event.currentTarget.value);
           }}
+          onKeyDown={(event) => {
+						if(event.key === "Enter") {
+							event.preventDefault();
+						}
+					}}
           limit={5}
         />
         {/*isSearchStalled ? 'My search is stalled' : ''*/}
