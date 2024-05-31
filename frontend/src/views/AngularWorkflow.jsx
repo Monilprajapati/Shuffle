@@ -15974,7 +15974,6 @@ const AngularWorkflow = (defaultprops) => {
 
 
     var defaultReturn = null
- 
     if (Object.getOwnPropertyNames(selectedComment).length > 0) {
       defaultReturn = <CommentSidebar />
     } else if (Object.getOwnPropertyNames(selectedTrigger).length > 0) {
@@ -16811,7 +16810,7 @@ const AngularWorkflow = (defaultprops) => {
         console.log("IN useeffectt (2)" + collapsed)
         return;
       }
-    })
+    },[])
     /*
     componentWillUpdate = (nextProps, nextState) => {
       console.log(nextProps, nextState)
