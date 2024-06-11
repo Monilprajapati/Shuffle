@@ -14308,6 +14308,7 @@ const AngularWorkflow = (defaultprops) => {
               	    onChange={(event, newValue) => {
 					  console.log("Changed autocomplete!")
               	      handleWorkflowSelectionUpdate({ target: { value: newValue } }, true)
+                      event.target.blur();
               	    }}
             		renderOption={(props, data, state) => {
               	      if (data.id === workflow.id) {
@@ -14336,6 +14337,7 @@ const AngularWorkflow = (defaultprops) => {
 										value: data,
 									}}, 
 								true)
+                document.activeElement.blur();
 							}}
               	          >
 						  	<PolylineIcon style={{ marginRight: 8 }} />
