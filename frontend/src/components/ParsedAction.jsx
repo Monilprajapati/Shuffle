@@ -182,11 +182,16 @@ const ParsedAction = (props) => {
   const [fieldCount, setFieldCount] = React.useState(0);
   const [hiddenDescription, setHiddenDescription] = React.useState(true);
   const [autoCompleting, setAutocompleting] = React.useState(false);
-  const [selectedActionParameters, setSelectedActionParameters] = React.useState(selectedAction.parameters);
+  const [selectedActionParameters, setSelectedActionParameters] = React.useState(selectedAction?.parameters || []);
     const [selectedVariableParameter, setSelectedVariableParameter] = React.useState("");
 	const [paramValues, setParamValues] = React.useState(
-		selectedAction.parameters.map((param) => param.value) || []
-	  );
+		selectedAction?.parameters.map((param) => {
+			return {
+				name: param.name,
+				value: param.value,
+			}
+		})
+	);
     const [actionlist, setActionlist] = React.useState([]);
     const [jsonList, setJsonList] = React.useState([]);
     const [showDropdown, setShowDropdown] = React.useState(false);
@@ -200,8 +205,17 @@ const ParsedAction = (props) => {
 		setLastSaved(false)
 	}
   }, [expansionModalOpen])
+  useEffect(() => {
+		setParamValues(selectedAction.parameters.map((param) => {
+			return {
+				name: param.name,
+				value: param.value,
+			}
+		}))
+  },[
+	selectedAction, selectedApp,setNewSelectedAction
+  ])
 
- 
   useEffect(() => {
 	if (selectedAction.parameters === null || selectedAction.parameters === undefined) {
 		return
@@ -395,7 +409,6 @@ const ParsedAction = (props) => {
 			  setSelectedActionParameters(selectedAction.parameters);
 			// }
 		  }
-			setParamValues(selectedAction.parameters.map((param) => param.value) || [])
     //   if (selectedActionParameters !== undefined && selectedActionParameters !== null
     //   ) {
       if ((selectedVariableParameter === null || selectedVariableParameter === undefined) && workflow.workflow_variables !== null && workflow.workflow_variables.length > 0) {
@@ -637,14 +650,14 @@ const ParsedAction = (props) => {
 		console.log("selectedAction: ", selectedAction)
 		console.log("ACTIONLIST: ", actionlist)
 		console.log("selectedVariableParameter", selectedVariableParameter)
-
 		const handleParamChange = (event, count,data) => {
-			setParamValues((prev) => {
-				const newValues = [...prev];
-				newValues[count] = event.target.value;
-				return newValues;
-			  }
-			);
+			const newParams = [...paramValues];
+			newParams.map((param) => {
+				if (param.name === data.name) {
+					param.value = event.target.value;
+				}
+			})
+			setParamValues(newParams);
 			changeActionParameter(event, count, data)
 		}
 		const calculateHelpertext = (input_data) => {
@@ -3127,7 +3140,7 @@ const ParsedAction = (props) => {
                 rows={data.name.startsWith("${") && data.name.endsWith("}") ? 2 : rows}
                 color="primary"
                 // defaultValue={data.value}
-                value={paramValues[count] !== undefined ? paramValues[count] : data.value}
+                value={data.value}
                 //options={{
                 //	theme: 'gruvbox-dark',
                 //	keyMap: 'sublime',
