@@ -167,6 +167,7 @@ const ParsedAction = (props) => {
 
 	listCache,
 	
+	authGroups,
 	apps,
 	setEditorData,
 	setcodedata,
@@ -1099,6 +1100,65 @@ const ParsedAction = (props) => {
 		return helperText
 	}
 
+	const analyzeFields = () => {
+
+		if (selectedAction === undefined || selectedAction === null) {
+			return null
+		}
+
+		if (selectedActionParameters === undefined || selectedActionParameters === null || selectedActionParameters.length === 0) {
+			return null
+		}
+
+		// Only shuffle tools for now
+		if (selectedAction.app_name !== "Shuffle Tools") {
+			return null
+		}
+
+		// Custom rules 
+		if (selectedAction.name === "set_cache_value") {
+			var actionKey = ""
+			var actionValue = ""
+			for (let [key,keyval] in Object.entries(selectedActionParameters)) {
+				const param = selectedActionParameters[key]
+				if (param.name === "key") {
+					actionKey = param.value
+				}
+
+				if (param.name === "value") {
+					actionValue = param.value
+				}
+			}
+
+			if (actionKey === "" || actionValue === "") {
+				return null
+			}
+
+			if (!actionKey.includes(".#") && actionValue.includes(".#")) {
+				return <span>When the key ({actionKey}) is static, but the value is a list ({actionValue}), it will overwrite the list. You may be looking for the <span onClick={() => {}} style={{cursor: "pointer", color: "#f85a3e", }}>Check Cache Contains</span> action instead.</span>
+			}
+		}
+
+		return null
+
+	}
+
+	const suggestionInfo = () => {
+		const suggestionText = analyzeFields()
+		if (suggestionText === undefined || suggestionText === null) {
+			return null
+		}
+
+		if (selectedAction.errors === undefined || selectedAction.errors === null || selectedAction.errors.length === 0) {
+			selectedAction.errors = ["Suggestion: " + suggestionText]
+		}
+
+		return <Paper style={{padding: 10, backgroundColor: theme.palette.surfaceColor, border: "1px solid red",}}>
+		  	<Typography variant="body" style={{color: "white", }}>
+		  		<b>Tip:</b> {suggestionText}
+	  		</Typography>
+		</Paper>
+	}
 
     // FIXME: Issue #40 - selectedActionParameters not reset
 	if (Object.getOwnPropertyNames(selectedAction).length > 0 && selectedActionParameters.length > 0) {
@@ -2483,6 +2543,7 @@ const ParsedAction = (props) => {
 					</Button>
 				</Tooltip>
 			}
+
 			{selectedAction.template === true && selectedAction.matching_actions !== undefined && selectedAction.matching_actions !== null && selectedAction.matching_actions.length > 0 ?
 			<div>
 			<Typography variant="body1">
@@ -2613,6 +2674,8 @@ const ParsedAction = (props) => {
 							</Typography>
 						</div>
 					) : null}
+
+		  {suggestionInfo()}
 
           {selectedActionParameters.map((data, count) => {
             if (data.variant === "") {
@@ -4093,7 +4156,6 @@ const ParsedAction = (props) => {
         </div>
 			: null
 		}
-          
         </div>
       </div>
     </div>
