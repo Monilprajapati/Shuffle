@@ -205,16 +205,16 @@ const ParsedAction = (props) => {
 		setLastSaved(false)
 	}
   }, [expansionModalOpen])
-//   useEffect(() => {
-// 		setParamValues(selectedAction.parameters.map((param) => {
-// 			return {
-// 				name: param.name,
-// 				value: param.value,
-// 			}
-// 		}))
-//   },[
-// 	selectedAction, selectedApp,setNewSelectedAction
-//   ])
+  useEffect(() => {
+		setParamValues(selectedAction.parameters.map((param) => {
+			return {
+				name: param.name,
+				value: param.value,
+			}
+		}))
+  },[
+	selectedAction, selectedApp,setNewSelectedAction, setUpdate, showDropdown, showAutocomplete, selectedActionParameters
+  ])
 
 //   useEffect(() => {
 // 	if (selectedAction.parameters === null || selectedAction.parameters === undefined) {
@@ -403,12 +403,7 @@ const ParsedAction = (props) => {
 			console.log("UseEffect Rendered!");
 			console.log("Workflow", workflow);
 			
-			setParamValues(selectedAction.parameters.map((param) => {
-				return {
-					name: param.name,
-					value: param.value,
-				}
-			}))
+			
 			// Only set app action name if it has changed
 			if (selectedAction.label !== appActionName) {
 				setAppActionName(selectedAction.label);
