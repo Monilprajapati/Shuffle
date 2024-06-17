@@ -2144,7 +2144,6 @@ const ParsedAction = (props) => {
 					} 
 				});
               }
-			  event.target.blur();
 			}}
             renderOption={(props, option, state) => {
               var newActionname = option.name;
