@@ -3090,7 +3090,7 @@ const ParsedAction = (props) => {
 								}}
 							/>
 						</Tooltip>
-						<Tooltip title="Autocomplete text" placement="top">
+						<Tooltip title="Autocomplete text" placement="bottom">
 							<AddCircleOutlineIcon
 								style={{ cursor: "pointer", margin: multiline ? 5 : 0, }}
 								onClick={(event) => {
