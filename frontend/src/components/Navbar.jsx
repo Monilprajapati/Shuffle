@@ -847,6 +847,7 @@ const Navbar = (props) => {
 	// Manually setShowTopbar(true) to show topbar by default
     const topbar = localStorage.getItem(topbar_var)
     console.log("topbar", topbar)
+    console.log("topbar", topbar)
     if (topbar === "true") {
       setShowTopbar(false)
 	}
