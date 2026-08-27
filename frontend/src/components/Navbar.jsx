@@ -846,7 +846,7 @@ const Navbar = (props) => {
   useEffect(() => {
 	// Manually setShowTopbar(true) to show topbar by default
     const topbar = localStorage.getItem(topbar_var)
-    console.log("test log")
+    console.log("topbar", topbar)
     if (topbar === "true") {
       setShowTopbar(false)
 	}
