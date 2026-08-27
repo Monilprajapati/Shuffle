@@ -1655,6 +1655,11 @@ const Navbar = (props) => {
 
   useEffect(() => {
     if (isLoggedIn && userdata?.active_org?.id?.length > 0) {
+      console.log("Just test log message to see the action")
+            console.log("Just test log message to see the action")
+
+                  console.log("Just test log message to see the action")
+
       handleGetOrg(userdata.active_org.id);
     }
   }, [isLoggedIn]);

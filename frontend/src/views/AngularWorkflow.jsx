@@ -538,7 +538,7 @@ const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 //const referenceUrl = "https://shuffler.io/functions/webhooks/"
 //const referenceUrl = window.location.origin+"/api/v1/hooks/"
 
-const searchClient = algoliasearch("JNSS5CFDZZ", "c8f882473ff42d41158430be09ec2b4e")
+const searchClient = algoliasearch("JNSS5CFDZZ", "33e4e3564f4f060e96e0531957bed552")
 
 
 const AngularWorkflow = (defaultprops) => {
@@ -980,6 +980,8 @@ const AngularWorkflow = (defaultprops) => {
                     const action = workflow.actions.find(action => action.id === result.nodeId);
                     if (action) {
                       console.log("Selected action", action)
+                            console.log("Just test log message to see the action")
+
                       setSelectedAction(action);
                       setRightSideBarOpen(true)
                     }
@@ -13474,7 +13476,7 @@ const AngularWorkflow = (defaultprops) => {
         if (queryID !== undefined && queryID !== null) {
           aa('init', {
             appId: "JNSS5CFDZZ",
-            apiKey: "c8f882473ff42d41158430be09ec2b4e",
+            apiKey: "33e4e3564f4f060e96e0531957bed552",
           })
 
           const timestamp = new Date().getTime()
@@ -22247,7 +22249,7 @@ const AngularWorkflow = (defaultprops) => {
                   if (queryID !== undefined && queryID !== null) {
                     aa('init', {
                       appId: "JNSS5CFDZZ",
-                      apiKey: "c8f882473ff42d41158430be09ec2b4e",
+                      apiKey: "33e4e3564f4f060e96e0531957bed552",
                     })
                     const timestamp = new Date().getTime();
                     aa('sendEvents', [
