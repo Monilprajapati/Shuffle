@@ -1636,22 +1636,7 @@ const Navbar = (props) => {
   };
 
 
-  useEffect(() => {
-		Mousetrap.bind(['command+k', 'ctrl+k'], () => {
-			setSearchBarModalOpen(true);
-			setIsDocSearchModalOpen(false);
-			return false; // Prevent the default action
-		});
-		Mousetrap.bind(['esc'], () => {
-			setSearchBarModalOpen(false);
-			setIsDocSearchModalOpen(false);
-			return false; // Prevent the default action
-		});
 
-		return () => {
-			Mousetrap.unbind(['command+k', 'ctrl+k']);
-		};
-	}, []);
 
   useEffect(() => {
     if (isLoggedIn && userdata?.active_org?.id?.length > 0) {
