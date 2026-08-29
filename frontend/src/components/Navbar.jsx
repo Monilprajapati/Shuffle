@@ -1658,9 +1658,6 @@ const Navbar = (props) => {
     if (isLoggedIn && userdata?.active_org?.id?.length > 0) {
       handleGetOrg(userdata.active_org.id);
 
-
-
-      
     }
   }, [isLoggedIn]);
 
