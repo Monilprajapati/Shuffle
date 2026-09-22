@@ -114,4 +114,5 @@ const SearchField = props => {
 	)
 }
 
+// sync-test: change from shaffuru/master
 export default SearchField;

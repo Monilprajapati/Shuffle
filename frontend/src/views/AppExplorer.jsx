@@ -92,7 +92,7 @@ import aa from "search-insights";
 // 2 = OpenAPI (Invalid)
 const searchClient = algoliasearch(
   "JNSS5CFDZZ",
-  "c8f882473ff42d41158430be09ec2b4e"
+  "363e707135ea95f5523ec1b262d96b03"
 )
 
 export const setAppCache = (globalUrl, appId, alias) => {
@@ -4358,7 +4358,7 @@ const buttonBackground = "linear-gradient(to right, #f86a3e, #f34079)";
                 if (queryID !== undefined && queryID !== null) {
                   aa("init", {
                     appId: "JNSS5CFDZZ",
-                    apiKey: "c8f882473ff42d41158430be09ec2b4e",
+                    apiKey: "26986891ddd374051039420cd77b0fff",
                   });
 
                   const timestamp = new Date().getTime();
@@ -4447,7 +4447,7 @@ const buttonBackground = "linear-gradient(to right, #f86a3e, #f34079)";
                 if (queryID !== undefined && queryID !== null) {
                   aa("init", {
                     appId: "JNSS5CFDZZ",
-                    apiKey: "c8f882473ff42d41158430be09ec2b4e",
+                    apiKey: "363e707135ea95f5523ec1b262d96b03",
                   });
 
                   const timestamp = new Date().getTime();

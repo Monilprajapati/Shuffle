@@ -47,7 +47,7 @@ import Dropzone from "../components/Dropzone.jsx";
 
 const searchClient = algoliasearch(
   "JNSS5CFDZZ",
-  "c8f882473ff42d41158430be09ec2b4e"
+  "eb5fd80aa6ed5ab4730d836cff3ea283"
 );
 
 // AppCard Component

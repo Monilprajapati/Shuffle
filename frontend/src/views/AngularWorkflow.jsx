@@ -539,7 +539,7 @@ const isSafari = /^((?!chrome|android).)*safari/i.test(navigator.userAgent);
 //const referenceUrl = "https://shuffler.io/functions/webhooks/"
 //const referenceUrl = window.location.origin+"/api/v1/hooks/"
 
-const searchClient = algoliasearch("JNSS5CFDZZ", "c8f882473ff42d41158430be09ec2b4e")
+const searchClient = algoliasearch("JNSS5CFDZZ", "33e4e3564f4f060e96e0531957bed552")
 
 
 const AngularWorkflow = (defaultprops) => {
@@ -9185,6 +9185,10 @@ const AngularWorkflow = (defaultprops) => {
         var found = false
         var showEnvCnt = 0
         for (let jsonkey in responseJson) {
+          if (responseJson[jsonkey]?.sensor_group === true) {
+			  continue
+		  }
+
           if (responseJson[jsonkey].default && !found) {
             setDefaultEnvironmentIndex(jsonkey)
             found = true
@@ -13361,7 +13365,7 @@ const AngularWorkflow = (defaultprops) => {
         if (queryID !== undefined && queryID !== null) {
           aa('init', {
             appId: "JNSS5CFDZZ",
-            apiKey: "c8f882473ff42d41158430be09ec2b4e",
+            apiKey: "33e4e3564f4f060e96e0531957bed552",
           })
 
           const timestamp = new Date().getTime()
