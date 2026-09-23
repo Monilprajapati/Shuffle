@@ -93,7 +93,11 @@ import aa from "search-insights";
 // 2 = OpenAPI (Invalid)
 const searchClient = algoliasearch(
   "JNSS5CFDZZ",
+<<<<<<< Monilprajapati/Shuffle (nightly) @ dc684bcb9c917625fa661675caa044f6d040a95b
   ALGOLIA_CLIENT_KEY
+=======
+  "363e707135ea95f5523ec1b262d96b03"
+>>>>>>> Monilprajapati/shaffuru (master) @ dc3b57174d149dd4f05a1f1bc60392de8c19fdc9
 )
 
 export const setAppCache = (globalUrl, appId, alias) => {
@@ -4359,7 +4363,11 @@ const buttonBackground = "linear-gradient(to right, #f86a3e, #f34079)";
                 if (queryID !== undefined && queryID !== null) {
                   aa("init", {
                     appId: "JNSS5CFDZZ",
+<<<<<<< Monilprajapati/Shuffle (nightly) @ dc684bcb9c917625fa661675caa044f6d040a95b
                     apiKey: ALGOLIA_CLIENT_KEY,
+=======
+                    apiKey: "26986891ddd374051039420cd77b0fff",
+>>>>>>> Monilprajapati/shaffuru (master) @ dc3b57174d149dd4f05a1f1bc60392de8c19fdc9
                   });
 
                   const timestamp = new Date().getTime();
@@ -4448,7 +4456,11 @@ const buttonBackground = "linear-gradient(to right, #f86a3e, #f34079)";
                 if (queryID !== undefined && queryID !== null) {
                   aa("init", {
                     appId: "JNSS5CFDZZ",
+<<<<<<< Monilprajapati/Shuffle (nightly) @ dc684bcb9c917625fa661675caa044f6d040a95b
                     apiKey: ALGOLIA_CLIENT_KEY,
+=======
+                    apiKey: "363e707135ea95f5523ec1b262d96b03",
+>>>>>>> Monilprajapati/shaffuru (master) @ dc3b57174d149dd4f05a1f1bc60392de8c19fdc9
                   });
 
                   const timestamp = new Date().getTime();

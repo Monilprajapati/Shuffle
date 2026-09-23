@@ -40,7 +40,7 @@ import { InstantSearch, Configure, connectSearchBox, connectHits, Index } from '
 
 // https://www.algolia.com/doc/api-reference/widgets/search-box/react/
 const chipStyle = {
-	backgroundColor: "#3d3f43", height: 30, marginRight: 5, paddingLeft: 5, paddingRight: 5, height: 28, cursor: "pointer", borderColor: "#3d3f43", color: "white",
+	backgroundColor: "#3d3f43", marginRight: 5, paddingLeft: 5, paddingRight: 5, height: 28, cursor: "pointer", borderColor: "#3d3f43", color: "white",
 }
 
 const SearchField = props => {

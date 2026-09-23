@@ -55,7 +55,11 @@ import {
 
 const searchClient = algoliasearch(
   "JNSS5CFDZZ",
+<<<<<<< Monilprajapati/Shuffle (nightly) @ dc684bcb9c917625fa661675caa044f6d040a95b
   ALGOLIA_CLIENT_KEY
+=======
+  "eb5fd80aa6ed5ab4730d836cff3ea283"
+>>>>>>> Monilprajapati/shaffuru (master) @ dc3b57174d149dd4f05a1f1bc60392de8c19fdc9
 );
 //const searchClient = algoliasearch("L55H18ZINA", "a19be455e7e75ee8f20a93d26b9fc6d6")
 
